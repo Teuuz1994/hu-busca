@@ -4,25 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
 
-import {
-  Container,
-  SearchUserInput,
-  BackgroundImageContent,
-  Title, SearchBox,
-  ExtraStyleButton,
-  ShowMessageError,
-  UserAvatar,
-  UserBoxInfo,
-  UserLocation,
-  UserLogin,
-  Username,
-  DescriptionUserLocation,
-  DescriptionUserLogin,
-  DescriptionUserName,
-  UserBoxContentInfo,
-  UserBoxDescription,
-  NavigationButton
-} from './style'
+import * as S from './style'
 
 interface IUserResponse {
   login: string;
@@ -54,22 +36,22 @@ const Home = () => {
     }
   };
 
-  const handleNavigateToUserDetails = () => { };
+  const handleNavigateToUserDetails = async () => { };
 
   return (
-    <BackgroundImageContent>
-      <Container>
-        <Title>
+    <S.BackgroundImageContent>
+      <S.Container>
+        <S.Title>
           Digite o nome do usuário para mais informações:
-        </Title>
-        <SearchBox>
-          <SearchUserInput
+        </S.Title>
+        <S.SearchBox>
+          <S.SearchUserInput
             type="text"
             placeholder="Digite o nome do usuário"
             name="username"
             ref={inputName}
           />
-          <ExtraStyleButton
+          <S.ExtraStyleButton
             type="button"
             textContent="Buscar Usuário"
             onClick={handleSearchUser}
@@ -83,50 +65,50 @@ const Home = () => {
               />
             }
           />
-        </SearchBox>
+        </S.SearchBox>
         {inputError && (
-          <ShowMessageError>
+          <S.ShowMessageError>
             Usuário não encontrado, por favor tente um nome de usuário válido!
-          </ShowMessageError>
+          </S.ShowMessageError>
         )}
 
         {Object.keys(search).length > 0 && (
-          <UserBoxInfo>
-            <UserBoxContentInfo>
-              <NavigationButton
+          <S.UserBoxInfo>
+            <S.UserBoxContentInfo>
+              <S.NavigationButton
                 type="button"
                 onClick={handleNavigateToUserDetails}
               >
-                <UserAvatar src={search.avatar_url} />
-              </NavigationButton>
-            </UserBoxContentInfo>
-            <UserBoxDescription>
-              <UserLogin>
-                <DescriptionUserLogin>
+                <S.UserAvatar src={search.avatar_url} />
+              </S.NavigationButton>
+            </S.UserBoxContentInfo>
+            <S.UserBoxDescription>
+              <S.UserLogin>
+                <S.DescriptionUserLogin>
                   Login:
-              </DescriptionUserLogin>
+              </S.DescriptionUserLogin>
                 <br />
                 {search.login}
-              </UserLogin>
-              <Username>
-                <DescriptionUserName>
+              </S.UserLogin>
+              <S.Username>
+                <S.DescriptionUserName>
                   Nome do usuário:
-              </DescriptionUserName>
+              </S.DescriptionUserName>
                 <br />
                 {search.name}
-              </Username>
-              <UserLocation>
-                <DescriptionUserLocation>
+              </S.Username>
+              <S.UserLocation>
+                <S.DescriptionUserLocation>
                   Localização:
-              </DescriptionUserLocation>
+              </S.DescriptionUserLocation>
                 <br />
                 {search.location}
-              </UserLocation>
-            </UserBoxDescription>
-          </UserBoxInfo>
+              </S.UserLocation>
+            </S.UserBoxDescription>
+          </S.UserBoxInfo>
         )}
-      </Container>
-    </BackgroundImageContent>
+      </S.Container>
+    </S.BackgroundImageContent>
   );
 };
 
