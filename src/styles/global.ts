@@ -2,15 +2,17 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   :root {
-    --color-primary: '#0d6efd';
-    --color-secundary: '#6c757d';
-    --color-success: '#198754';
-    --color-danger: '#dc3545';
-    --color-alert: '#ffc107';
-    --color-info: '#0dcaf0';
-    --color-dark: '#161b22';
-    --color-white: '#fff';
-    --color-black: '#000';
+    //COLORS
+    --primary-color: #0d6efd;
+    --secundary-color: #6c757d;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --alert-color: #ffc107;
+    --info-color: #0dcaf0;
+    --dark-color: #161b22;
+    --white-color: #fff;
+    --black-color: #000;
+    --shadow-color: rgba(0, 0, 0, 0.2);
   }
 
   * {
@@ -25,9 +27,12 @@ export default createGlobalStyle`
     height: 100%;
   }
 
+  #root {
+    width: 100%;
+    height: 100%;
+  }
+
   input, button {
-    outline: none;
-    border: none;
     font-family: 'Roboto', sans-serif
   }
 

@@ -4,8 +4,10 @@ import { ButtonProps } from '.'
 
 export const CustonButton = styled.button<ButtonProps>`
   padding: 1rem;
+  outline: none;
+  border: none;
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   color: ${props => {
     switch (props.variant) {
       case 'primary':
