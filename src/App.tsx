@@ -1,6 +1,6 @@
-import Routes from './routes';
+import Routes from "./routes";
 
-import GlobalStyles from './styles/global';
+import GlobalStyles from "./styles/global";
 
 const App = () => {
   return (

@@ -1,6 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+  :root {
+    --color-primary: '#0d6efd';
+    --color-secundary: '#6c757d';
+    --color-success: '#198754';
+    --color-danger: '#dc3545';
+    --color-alert: '#ffc107';
+    --color-info: '#0dcaf0';
+    --color-dark: '#161b22';
+    --color-white: '#fff';
+    --color-black: '#000';
+  }
+
   * {
     margin: 0;
     padding: 0;

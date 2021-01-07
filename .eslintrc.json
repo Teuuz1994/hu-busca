@@ -31,6 +31,9 @@
   "rules": {
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
