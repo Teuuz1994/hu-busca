@@ -2,31 +2,27 @@ import { useState, useRef } from 'react';
 import { FiUser } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 
+import { IUserProps, useDetailUser } from '../../contexts/UserDetailsContext';
 import api from '../../services/api';
 
 import * as S from './style'
 
-interface IUserResponse {
-  login: string;
-  avatar_url: string;
-  name: string;
-  location: string;
-}
-
 const Home = () => {
-  const [search, setSearch] = useState<IUserResponse>({} as IUserResponse);
+  const [search, setSearch] = useState<IUserProps>({} as IUserProps);
   const [inputError, setInputError] = useState(false);
 
   const inputName = useRef<HTMLInputElement>(null);
 
   const history = useHistory();
 
+  const { saveUser } = useDetailUser();
+
   const handleSearchUser = async () => {
     try {
       if (inputName.current?.value) {
         const input = inputName.current.value;
 
-        const response = await api.get<IUserResponse>(`/users/${input}`);
+        const response = await api.get<IUserProps>(`/users/${input}`);
 
         setSearch(response.data);
         if (inputError) setInputError(false);
@@ -36,7 +32,10 @@ const Home = () => {
     }
   };
 
-  const handleNavigateToUserDetails = async () => { };
+  const handleNavigateToUserDetails = async () => {
+    saveUser(search)
+    history.push('/details')
+  };
 
   return (
     <S.BackgroundImageContent>
