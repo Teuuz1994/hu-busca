@@ -20,6 +20,10 @@ export const HeaderInfo = styled.div`
   padding: 15px;
   margin-top: 10px;
   display: flex;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const AvatarInfo = styled.div`
@@ -27,17 +31,32 @@ export const AvatarInfo = styled.div`
   flex-direction: column;
   justify-content: left;
   align-items: flex-start;
+
+  @media(max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
 `;
 
 export const UserAvatar = styled.img`
   width: 150px;
   border-radius: 50%;
+
+  @media(max-width: 768px) {
+    width: 75px;
+  }
 `;
 
 export const UserLoginName = styled.span`
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
   margin: 9px 0 0 36px;
+
+  @media(max-width: 768px) {
+    margin: 10px 0 10px 0;
+    line-height: 5px;
+  }
 `;
 
 export const Username = styled.h2`
@@ -45,12 +64,23 @@ export const Username = styled.h2`
   font-family: 'Roboto', sans-serif;
   margin-left: 160px;
   text-align: center;
+
+  @media(max-width: 768px) {
+    font-size: 1.5rem;
+    margin: 10px auto;
+  }
 `;
 
 export const ImageLogo = styled.img`
   width: 25rem;
   height: 25rem;
   margin-left: 15rem;
+
+  @media(max-width: 768px) {
+    width: 100%;
+    height: 15rem;
+    margin: 0;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -61,6 +91,10 @@ export const ImageContainer = styled.div`
 export const UserNameInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media(max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 export const UserLocation = styled.span`
@@ -70,6 +104,11 @@ export const UserLocation = styled.span`
   text-align: start;
   color: var(--dark-color);
   margin-left: 160px;
+
+  @media(max-width: 768px) {
+    font-size: 0.8rem;
+    margin: 0 0 0 0;
+  }
 `;
 
 export const UserFollowers = styled(UserLocation)``;
@@ -115,16 +154,39 @@ export const RepoButton = styled.button`
     align-items: center;
     color: var(--dark-color);
     text-decoration: none;
+
+    @media(max-width: 768px) {
+      height: 4.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+    }
+  }
+
+  @media(max-width: 768px) {
+    margin-top: 16px;
+    height: 14rem;
+    padding: 10px;
+    line-height: 18px;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
-export const RepoName = styled.span``;
+export const RepoName = styled.span`
+  font-family: 'Roboto', sans-serif;
 
-export const RepoLanguage = styled.span``;
+  @media(max-width: 768px) {
+    text-align: justify;
+  }
+`;
 
-export const RepoDescription = styled.span``;
+export const RepoLanguage = styled(RepoName)``;
 
-export const RepoCreatedAt = styled.span``;
+export const RepoDescription = styled(RepoName)``;
 
-export const RepoLastCommit = styled.span``;
+export const RepoCreatedAt = styled(RepoName)``;
+
+export const RepoLastCommit = styled(RepoName)``;
 

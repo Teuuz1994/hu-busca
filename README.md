@@ -18,3 +18,4 @@ tarefa 3:
 
 tarefa 4:
 - criar um menu exibindo os últimos usuários pesquisados recentemente.
+
