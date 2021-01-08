@@ -67,7 +67,7 @@ const Home = () => {
         </S.SearchBox>
         {inputError && (
           <S.ShowMessageError>
-            Usuário não encontrado, por favor tente um nome de usuário válido!
+            Usuário válido!
           </S.ShowMessageError>
         )}
 

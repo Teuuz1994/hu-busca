@@ -1,8 +1,19 @@
-import UserInfo from '../../components/UserInfo'
+import { FiArrowLeft } from 'react-icons/fi';
+
+import UserInfo from '../../components/UserInfo';
+
+import { ButtonGoback } from './style';
 
 const UserDetails = () => {
   return (
-    <UserInfo />
+    <>
+      <ButtonGoback to="/">
+        <FiArrowLeft
+          size={32}
+        />
+      </ButtonGoback>
+      <UserInfo />
+    </>
   )
 };
 
