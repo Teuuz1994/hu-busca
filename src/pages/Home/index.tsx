@@ -1,8 +1,10 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { FiUser } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 
 import { IUserProps, useDetailUser } from '../../contexts/UserDetailsContext';
+import Modal from '../../components/Modal';
+
 import api from '../../services/api';
 
 import * as S from './style'
@@ -10,12 +12,18 @@ import * as S from './style'
 const Home = () => {
   const [search, setSearch] = useState<IUserProps>({} as IUserProps);
   const [inputError, setInputError] = useState(false);
+  const [storageUsers, setStorageUsers] = useState<IUserProps[]>([])
+  const [loading, setLoading] = useState(true);
 
   const inputName = useRef<HTMLInputElement>(null);
 
   const history = useHistory();
 
-  const { saveUser } = useDetailUser();
+  const { saveUser, saveUsersInVector, rescueUsersInVector } = useDetailUser();
+
+  useEffect(() => {
+    setStorageUsers(rescueUsersInVector())
+  }, [rescueUsersInVector])
 
   const handleSearchUser = async () => {
     try {
@@ -25,6 +33,12 @@ const Home = () => {
         const response = await api.get<IUserProps>(`/users/${input}`);
 
         setSearch(response.data);
+        setLoading(!loading);
+
+        if (!loading) {
+          saveUsersInVector(search)
+        };
+
         if (inputError) setInputError(false);
       }
     } catch {
@@ -40,6 +54,9 @@ const Home = () => {
   return (
     <S.BackgroundImageContent>
       <S.Container>
+        {storageUsers !== null && (
+          <Modal users={storageUsers} />
+        )}
         <S.Title>
           Digite o nome do usuário para mais informações:
         </S.Title>
